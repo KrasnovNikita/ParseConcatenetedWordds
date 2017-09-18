@@ -35,5 +35,7 @@ I have the following algorithm:
 
 Result:
 Quantity of fully cancateneted words: 81143
+
 The longest concatenated word: ethylenediaminetetraacetates
+
 The second longest concateneted word: electroencephalographically
