@@ -21,7 +21,7 @@ public class Parser {
 		FileInputStream fstream = null;
 		DataInputStream dstream = null;
 		BufferedReader breader = null;
-		ArrayList<String> longWords = new ArrayList<String>();
+		ArrayList<String> words = new ArrayList<String>();
 
 		try {
 			fstream = new FileInputStream(filePath);
@@ -32,12 +32,12 @@ public class Parser {
 
 			while ((line = breader.readLine()) != null) {
 				if (!line.isEmpty()) {
-					longWords.add(line);
+					words.add(line);
 				}
 
 			}
-			longWords.trimToSize();
-			sortArrayInDescendingOrder(longWords);
+			words.trimToSize();
+			sortArrayInDescendingOrder(words);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class Parser {
 
 		}
 		
-		return longWords;
+		return words;
 	}
 
 	public ArrayList<Integer> getIndexesOfWords(ArrayList<String> inputList) {
