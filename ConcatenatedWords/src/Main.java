@@ -8,11 +8,8 @@ public class Main {
 		ArrayList<Integer> indexes = parser.getIndexesOfWords(longWords);
 
 		System.out.println("Quantity of fully cancateneted words: " + parser.countConcatWords(indexes));
-
-		// System.out.println("The longest concateneted word: " +
-		// main.findLongestWord());
-		// System.out.println("The second longest concateneted word: " +
-		// main.findLongestWord());
+		System.out.println("The longest concateneted word: " + parser.findAndRemoveLongestWord(longWords, indexes));
+		System.out.println("The second longest concateneted word: " + parser.findAndRemoveLongestWord(longWords, indexes));
 
 	}
 

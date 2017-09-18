@@ -36,6 +36,7 @@ public class Parser {
 				}
 
 			}
+			longWords.trimToSize();
 			sortArrayInDescendingOrder(longWords);
 
 		} catch (FileNotFoundException e) {
@@ -57,27 +58,24 @@ public class Parser {
 
 	public ArrayList<Integer> getIndexesOfWords(ArrayList<String> inputList) {
 		ArrayList<Integer> emptyStringIndexes = new ArrayList<>();
-		ArrayList<String> copy = new ArrayList<String>();
 		int placeOfCheckWord = 0;
 
 		for (String word : inputList) {
 			if (word.length() > 3) {
+				int initialLength = word.length();
 				for (int j = 1 + placeOfCheckWord; j < inputList.size(); j++) {
-					if (word.length() - 2 >= inputList.get(j).length()) {
+					if ((initialLength - 2) >= inputList.get(j).length()) {
 						if (word.contains(inputList.get(j))) {
 							word = word.replace(inputList.get(j), "");
-							if (word.isEmpty() || word == null) {
+							if (word.isEmpty()) {
 								emptyStringIndexes.add(placeOfCheckWord);
 							}
 							System.out.println(word);
 						}
 					}
 				}
-
 			}
 			placeOfCheckWord++;
-			// sortArrayInDescendingOrder(inputList);
-
 		}
 
 		return emptyStringIndexes;
@@ -88,18 +86,19 @@ public class Parser {
 		return indexes.size();
 	}
 
-	public String findLongestWord(ArrayList<String> parsedList, ArrayList<Integer> indexes) {
+	public String findAndRemoveLongestWord(ArrayList<String> parsedList, ArrayList<Integer> indexes) {
 		String max = "";
-		// int indexMax = 0;
+		int indexOfLongest = 0;
 		for (int i = 0; i < indexes.size(); i++) {
 			String temp = parsedList.get(indexes.get(i));
 			if (max.length() < temp.length()) {
 				max = temp;
-				// indexMax = indexes.get(i);
+				indexOfLongest = indexes.get(i);
 			}
 
 		}
 
+		indexes.remove(indexOfLongest);
 		return max;
 	}
 
