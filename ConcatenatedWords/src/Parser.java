@@ -52,8 +52,8 @@ public class Parser {
 			}
 
 		}
+		
 		return longWords;
-
 	}
 
 	public ArrayList<Integer> getIndexesOfWords(ArrayList<String> inputList) {
@@ -77,7 +77,9 @@ public class Parser {
 			}
 			placeOfCheckWord++;
 		}
-
+	
+		emptyStringIndexes.trimToSize();
+		
 		return emptyStringIndexes;
 	}
 
@@ -99,6 +101,7 @@ public class Parser {
 		}
 
 		indexes.remove(indexOfLongest);
+		
 		return max;
 	}
 
